@@ -1,12 +1,24 @@
 if __name__ != "__main__":
 
     def get_cuenta(cuenta):
-        cuenta = cuenta.replace(" ", "")
+
+        diccionario_caracteres={
+
+            ' ':'',
+            '-':'',
+            '\t':'',
+            '/':'',
+
+        }
+
+
+        for caracter, valor_nuevo in diccionario_caracteres.items():
+            cuenta = cuenta.replace(caracter, valor_nuevo)
 
         if cuenta.upper().find("ES") == 0:
             cuenta = cuenta[4:len(cuenta)]
 
-        if cuenta.isnumeric() == False:
+        if cuenta.isnumeric() is False:
             resultado = "El número de cuenta contiene caracteres no numéricos."
 
         else:
@@ -25,6 +37,6 @@ if __name__ != "__main__":
 
                 n_cuenta = cuenta[10:21]
 
-                resultado = "{}/{}/{}/{}".format(entidad, oficina, dc, n_cuenta)
+                resultado = f"{entidad}/{oficina}/{dc}/{n_cuenta}"
 
         return resultado
