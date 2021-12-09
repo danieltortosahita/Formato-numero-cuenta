@@ -87,5 +87,5 @@ if __name__ != "__main__":
             self.ayudaMenu = Menu(self.barraMenu, tearoff=0)
             self.ayudaMenu.add_command(label="Uso", command=self.ayuda)
 
-            self.barraMenu.add_cascade(label="Archivo", menu=self.borrarMenu)
+            self.barraMenu.add_cascade(label="Archivo", menu=self.salirMenu)
             self.barraMenu.add_cascade(label="Ayuda", menu=self.ayudaMenu)
