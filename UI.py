@@ -61,12 +61,12 @@ if __name__ != "__main__":
             self.cuadroResultado.grid(row=1, column=1, padx=10, pady=10)
 
             # ************************LABELS****************************
-            self.lblID = Label(self.miFrame, text="Nº Cuenta")
-            self.lblID.grid(row=0, column=0, padx=10, pady=10, sticky="e")
+            self.lblCuenta = Label(self.miFrame, text="Nº Cuenta")
+            self.lblCuenta.grid(row=0, column=0, padx=10, pady=10, sticky="e")
 
 
-            self.lblNombre = Label(self.miFrame, text="Resultado")
-            self.lblNombre.grid(row=1, column=0, padx=10, pady=10, sticky="e")
+            self.lblResultado = Label(self.miFrame, text="Resultado")
+            self.lblResultado.grid(row=1, column=0, padx=10, pady=10, sticky="e")
 
             # ************************BOTONES***************************
             self.miFrameBotones = Frame(self.root)
@@ -74,25 +74,18 @@ if __name__ != "__main__":
 
 
 
-            self.btnRead = Button(self.miFrameBotones, text="Convertir", command=self.convertir)
-            self.btnRead.grid(row=0, column=1, padx=10, pady=10, sticky="e")
+            self.btnConvertir = Button(self.miFrameBotones, text="Convertir", command=self.convertir)
+            self.btnConvertir.grid(row=0, column=1, padx=10, pady=10, sticky="e")
 
-            self.btnDelete = Button(self.miFrameBotones, text="Borrar", command=self.limpiar_campos)
-            self.btnDelete.grid(row=0, column=3, padx=10, pady=10, sticky="e")
+            self.btnBorrar = Button(self.miFrameBotones, text="Borrar", command=self.limpiar_campos)
+            self.btnBorrar.grid(row=0, column=3, padx=10, pady=10, sticky="e")
 
         def crear_barra_menu(self):
-            self.bbddMenu = Menu(self.barraMenu, tearoff=0)
-
-            self.bbddMenu.add_command(label="Salir", command=self.salir_aplicacion)
-
-            self.borrarMenu = Menu(self.barraMenu, tearoff=0)
-            self.borrarMenu.add_command(label="Borrar campos", command=self.limpiar_campos)
-
-            self.crudMenu = Menu(self.barraMenu, tearoff=0)
-
+            self.salirMenu = Menu(self.barraMenu, tearoff=0)            
+            self.salirMenu.add_command(label="Salir", command=self.salir_aplicacion)
 
             self.ayudaMenu = Menu(self.barraMenu, tearoff=0)
             self.ayudaMenu.add_command(label="Uso", command=self.ayuda)
 
-            self.barraMenu.add_cascade(label="Archivo", menu=self.bbddMenu)
+            self.barraMenu.add_cascade(label="Archivo", menu=self.borrarMenu)
             self.barraMenu.add_cascade(label="Ayuda", menu=self.ayudaMenu)
